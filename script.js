@@ -11,7 +11,7 @@ function go(n){if(n<0||n>=S.length)return;c=n;
  $('#prev').disabled=n==0;$('#next').disabled=n==S.length-1;
  if(n==1)startLetter();if(n==5)resetGift()}
 $('#prev').onclick=()=>go(c-1);$('#next').onclick=()=>go(c+1);
-addEventListener('keydown',e=>{if(e.key=='ArrowRight'||e.key==' ')go(c+1);if(e.key=='ArrowLeft')go(c-1)});
+addEventListener('keydown',e=>{if(/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;if(e.key=='ArrowRight')go(c+1);if(e.key=='ArrowLeft')go(c-1)});
 let tx=0;addEventListener('touchstart',e=>tx=e.target.closest('.dg,input')?null:e.touches[0].clientX,{passive:true});
 addEventListener('touchend',e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)go(c+(d<0?1:-1))});
 $('#open').onclick=e=>{burst(e.clientX,e.clientY,60);setTimeout(()=>go(1),350)};
