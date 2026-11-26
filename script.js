@@ -97,7 +97,7 @@ let pp=0;WD.forEach((w,i)=>{const b=document.createElement('div');b.className='b
 
 // ===== gift finale (slide 6) =====
 const FT="Tetaplah tumbuh. Tetaplah tersenyum. Dan tolong, jangan pernah percaya, bahkan sedetik pun, bahwa kehadiranmu di dunia ini tidak berarti. Kamu berarti, lebih dari yang bisa kuucapkan.";
-let gt=0;const G=$('#gift'),HT=['ketuk 3x untuk membuka','sekali lagi... 👀','tinggal lagii lagi!'];
+let gt=0;const G=$('#gift'),HT=['ketuk 3x untuk membuka','sekali lagi... 👀','lagii lagi!'];
 function resetGift(){gt=0;G.className='gift';G.style.display='';G.style.setProperty('--s',1);$('#gift small').textContent=HT[0];$('#fin').classList.remove('show');$('.final').classList.remove('in');$('#ft').innerHTML=''}
 G.onclick=e=>{if(gt>=3)return;gt++;vib(30);G.classList.remove('shk');void G.offsetWidth;G.classList.add('shk');G.style.setProperty('--s',1+gt*.12);burst(e.clientX,e.clientY,15);
  if(gt<3)$('#gift small').textContent=HT[gt];else{G.classList.add('open');burst(innerWidth/2,innerHeight/2,160);setTimeout(()=>{G.style.display='none';reveal()},700)}};
