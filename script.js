@@ -77,7 +77,7 @@ const LV=['I love you ♡','aku sayang kamu 🥺','saranghae 💕','te quiero �
 $('.heart').onclick=e=>{toast(LV[li++%LV.length]);burst(e.clientX,e.clientY,45);vib([20,30,20])};
 
 // ===== love letter (slide 2) =====
-const PG=["*Terima_kasih* sudah lahir ke dunia ini. Sejak hari itu, dunia pelan-pelan jadi lebih *hangat*, dan aku beruntung sekali bisa menemukanmu.",
+const PG=["*Terima kasih sudah memilih untuk hadir di dunia ini. Rasanya, sejak kamu dilahirkan, dunia punya satu alasan lagi untuk terasa lebih hangat. Dan di antara begitu banyak kemungkinan yang ditawarkan kehidupan, aku bersyukur semesta mempertemukan langkahku denganmu.",
 "Terima kasih sudah *tetap_hidup*, bahkan di hari-hari ketika bertahan terasa begitu berat. Tidak semua orang tahu sekeras apa kamu berjuang.",
 "Selama *23_tahun* kamu sudah melakukan yang terbaik, bahkan saat tak ada yang bertepuk tangan. *Aku_melihat_semuanya,* dan aku bangga padamu.",
 "Terima kasih sudah jadi *orang_yang_hebat.* Semoga *kemenangan* selalu setia menemani langkahmu, dan hidup memberimu banyak alasan untuk bahagia. ♡"],EM=['🥺','🫶','🥹','🌷'];let pg=0;
@@ -97,7 +97,7 @@ let pp=0;WD.forEach((w,i)=>{const b=document.createElement('div');b.className='b
 
 // ===== gift finale (slide 6) =====
 const FT="Tetaplah tumbuh. Tetaplah tersenyum. Dan tolong, jangan pernah percaya, bahkan sedetik pun, bahwa kehadiranmu di dunia ini tidak berarti. Kamu berarti, lebih dari yang bisa kuucapkan.";
-let gt=0;const G=$('#gift'),HT=['ketuk 3x untuk membuka','sekali lagi... 👀','tinggal sekali lagi! 🥺'];
+let gt=0;const G=$('#gift'),HT=['ketuk 3x untuk membuka','sekali lagi... 👀','tinggal lagii lagi!'];
 function resetGift(){gt=0;G.className='gift';G.style.display='';G.style.setProperty('--s',1);$('#gift small').textContent=HT[0];$('#fin').classList.remove('show');$('.final').classList.remove('in');$('#ft').innerHTML=''}
 G.onclick=e=>{if(gt>=3)return;gt++;vib(30);G.classList.remove('shk');void G.offsetWidth;G.classList.add('shk');G.style.setProperty('--s',1+gt*.12);burst(e.clientX,e.clientY,15);
  if(gt<3)$('#gift small').textContent=HT[gt];else{G.classList.add('open');burst(innerWidth/2,innerHeight/2,160);setTimeout(()=>{G.style.display='none';reveal()},700)}};
