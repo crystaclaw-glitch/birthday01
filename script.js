@@ -1,5 +1,5 @@
 // ✏️ Ganti nama panggilannya di sini
-const NAME = "love";
+const NAME = "Solasta";
 const $=s=>document.querySelector(s), S=[...document.querySelectorAll('.slide')];
 $('#nm').textContent=NAME; let c=0;
 // dots
@@ -51,7 +51,7 @@ go(0);
 
 // ===== extra interactions =====
 const stage=$('#stage'),vib=n=>navigator.vibrate&&navigator.vibrate(n),rnd=a=>a[Math.random()*a.length|0];
-const CMP=['cutie alert 🚨','pretty pretty 🌸','my favorite person','I see you ♡','proud of you!','you matter 🥺','that smile tho 😭','stay soft 🍓','my whole heart','certified cutie 🎀'];
+const CMP=['cutie alert 🚨','pretty pretty 🌸','my favorite person','I see you ♡','proud of you!','you matter','that smile tho 😭','stay soft 🍓','my whole heart','certified cutie 🎀'];
 function at(cls,t,x,y,ms=1400){const r=stage.getBoundingClientRect(),e=document.createElement('span');e.className=cls;e.textContent=t;e.style.left=x-r.left+'px';e.style.top=y-r.top+'px';stage.appendChild(e);setTimeout(()=>e.remove(),ms)}
 function note(t,x,y){at('wn',t,x,y,6000)}
 stage.addEventListener('pointerdown',e=>{if(e.target.closest('#ui,#mus,input,.dg'))return;
@@ -73,17 +73,17 @@ let oc=0;document.querySelectorAll('.fc').forEach(f=>f.onclick=e=>{if(f.classLis
 // catch the hearts
 let ct=0;fx.addEventListener('pointerdown',e=>{const h=e.target.closest('.hrt');if(!h)return;e.stopPropagation();h.remove();ct++;burst(e.clientX,e.clientY,14);vib(10);if([5,15,30,50].includes(ct))toast(ct+' hearts caught 💕')});
 // finale heart
-const LV=['I love you ♡','aku sayang kamu 🥺','saranghae 💕','te quiero 🌹','ti amo ✨','wo ai ni 🧧',"je t'aime 🥐"];let li=0;
+const LV=['I love you ♡','aku sayang kamu','saranghae 💕','te quiero 🌹','ti amo ✨','wo ai ni 🧧',"je t'aime 🥐"];let li=0;
 $('.heart').onclick=e=>{toast(LV[li++%LV.length]);burst(e.clientX,e.clientY,45);vib([20,30,20])};
 
 // ===== love letter (slide 2) =====
-const PG=["*Terima kasih sudah memilih untuk hadir di dunia ini. Rasanya, sejak kamu dilahirkan, dunia punya satu alasan lagi untuk terasa lebih hangat. Dan di antara begitu banyak kemungkinan yang ditawarkan kehidupan, aku bersyukur semesta mempertemukan langkahku denganmu.",
-"Terima kasih sudah *tetap_hidup*, bahkan di hari-hari ketika bertahan terasa begitu berat. Tidak semua orang tahu sekeras apa kamu berjuang.",
-"Selama *23_tahun* kamu sudah melakukan yang terbaik, bahkan saat tak ada yang bertepuk tangan. *Aku_melihat_semuanya,* dan aku bangga padamu.",
-"Terima kasih sudah jadi *orang_yang_hebat.* Semoga *kemenangan* selalu setia menemani langkahmu, dan hidup memberimu banyak alasan untuk bahagia. ♡"],EM=['🥺','🫶','🥹','🌷'];let pg=0;
+const PG=["*Terima kasih sudah memilih untuk hadir di dunia ini. Karna, dunia punya satu alasan lagi untuk terasa lebih hidup. Dan di antara begitu banyak kemungkinan yang ditawarkan kehidupan, aku bersyukur semesta mempertemukan jalanku denganmu.",
+"Terima kasih sudah tetap bertahan, bahkan ketika hidup tidak selalu memberimu alasan untuk merasa baik-baik saja, Tapi lihatlah, kamu berhasil sampai sejauh ini, dan itu bukan sesuatu yang sederhana.",
+"Selama 23 tahun ini, kamu sudah melewati begitu banyak hal, tumbuh melalui berbagai keadaan, Bahkan pada saat dunia tidak memberikan tepuk tangan, bahkan ketika usahamu luput dari perhatian. *Aku_melihat_semuanya,* dan aku bangga padamu.",
+"Terima kasih sudah jadi *orang_yang_hebat.* Semoga *kemenangan* selalu setia menemani langkahmu. Di usia yang baru ini, semoga semesta lebih sering berpihak kepadamu dan hidup memberimu banyak alasan untuk bahagia. ♡"],EM=['🥺','🫶','🥹','🌷'];let pg=0;
 function startLetter(){pg=0;showPg()}
 function showPg(){$('#tw').innerHTML=PG[pg].split(' ').map((w,i)=>`<span style="animation-delay:${i*.07+.3}s">${w.startsWith('*')?'<mark>'+w.replace(/\*/g,'').replace(/_/g,' ')+'</mark>':w}</span> `).join('');
- $('#tn').textContent=pg<PG.length-1?'ketuk untuk lanjut ›':'kejutan berikutnya ♡'}
+ $('#tn').textContent=pg<PG.length-1?'ketuk untuk lanjut ›':'hadiah berikutnya ♡'}
 function react(){$('#em').textContent=EM[pg];const b=$('.pola').getBoundingClientRect();burst(b.left+b.width/2,b.top+b.height/2,25);vib(15)}
 $('#tn').onclick=()=>{if(pg<PG.length-1){pg++;showPg();react()}else go(2)};
 $('.paper').onclick=e=>{if(e.target.id!='tn')$('#tn').click()};
@@ -92,7 +92,7 @@ $('.paper').onclick=e=>{if(e.target.id!='tn')$('#tn').click()};
 const WD=[['🌷','softness','You deserve softness: in your days, and in how you talk to yourself.'],['☁️','peace','You deserve peace. Quiet, uncomplicated, all yours.'],['🍓','good things','You deserve good things that stay.'],['🛌','rest','You deserve rest, with zero guilt.'],['🫶','all the love','You deserve a love that never makes you feel alone.'],['🌙','calm nights','You deserve calm nights, and mornings you are not afraid of.']];
 let pp=0;WD.forEach((w,i)=>{const b=document.createElement('div');b.className='b';b.style.setProperty('--a',i*60+'deg');b.innerHTML=`<button>${w[0]}<small>${w[1]}</small></button>`;
  b.firstChild.onclick=e=>{if(b.classList.contains('gone'))return;b.classList.add('gone');pp++;$('#rc').textContent=w[2];$('#rn').textContent=pp+' / 6 popped';burst(e.clientX,e.clientY,25);vib(15);
-  if(pp==6)setTimeout(()=>{burst(innerWidth/2,innerHeight/2,150);$('.circ').classList.add('done');$('#rc').textContent='Not someday. Right now. ♡';toast('you deserve all of it 🥹')},500)};
+  if(pp==6)setTimeout(()=>{burst(innerWidth/2,innerHeight/2,150);$('.circ').classList.add('done');$('#rc').textContent='Not someday. Right now. ♡';toast('you deserve all of it')},500)};
  $('.spin').appendChild(b)});
 
 // ===== gift finale (slide 6) =====
